@@ -89,7 +89,7 @@ class Cryptocurrency extends Component {
     return (<div className='currency_list'>
     {this.state.showChart ? (<div>
         <p>{this.state.selected_coin}</p>
-        <p>Buy: ${this.state.sellingPrice.toFixed(2)}</p>
+        <p>Buy: ${this.state.sellingPrice.toFixed(3)}</p>
       </div>) : null}
     {this.state.showChart ? (<Line data={this.state.chartData}/>) : (<p>SELECT A CURRENCY</p>)}
       <p>Most Popular Cryptocurrencies</p>

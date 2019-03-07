@@ -12,6 +12,7 @@ class Navigation extends Component {
         <ul className="nav navbar-nav">
           <li className="active"><a href="#">Home</a></li>
           <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Crypto News</a></li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
