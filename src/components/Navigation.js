@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
 import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap';
+import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom'
+import Auth from '../modules/Auth'
+import Portfolio from './Portfolio'
+
 
 class Navigation extends Component {
+  constructor() {
+    super();
+    this.state = {
+      auth: Auth.isUserAuthenticated(),
+    }
+  }
+
   render() {
     return(
     <nav className="navbar navbar-inverse">
@@ -10,8 +21,8 @@ class Navigation extends Component {
           <a className="navbar-brand" href="#">Cryptex</a>
         </div>
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#">Portfolio</a></li>
+          <li className="active"><a href="/">Home</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
           <li><a href="#">Crypto News</a></li>
         </ul>
         <ul className="nav navbar-nav navbar-right">

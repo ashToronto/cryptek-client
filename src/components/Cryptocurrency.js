@@ -86,7 +86,8 @@ class Cryptocurrency extends Component {
   }
 
   render() {
-    return (<div className='currency_list'>
+    return (<div className="Layout">
+    <div className='currency_list'>
     {this.state.showChart ? (<div>
         <p>{this.state.selected_coin}</p>
         <p>Buy: ${this.state.sellingPrice.toFixed(3)}</p>
@@ -119,6 +120,7 @@ class Cryptocurrency extends Component {
           })
         };
       </div>
+    </div>
     </div>);
   }
 }
