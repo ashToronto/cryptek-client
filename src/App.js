@@ -4,6 +4,9 @@ import Cryptocurrency from './components/Cryptocurrency'
 import Portfolio from './components/Portfolio'
 import './App.css';
 import Navigation from './components/Navigation'
+import Login from './components/auth/LoginForm'
+import Register from './components/auth/RegisterForm'
+
 
 class App extends Component {
   render() {
@@ -16,6 +19,8 @@ class App extends Component {
           <Switch>
           <Route exact path='/' component={Cryptocurrency} />
           <Route path='/portfolio/' component={Portfolio} />
+          <Route path='/register/' component={Register} />
+          <Route path='/login/' component={Login} />
         </Switch>
         </Router>
       </div>
