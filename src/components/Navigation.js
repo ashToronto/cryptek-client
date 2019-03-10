@@ -24,12 +24,12 @@ class Navigation extends Component {
         </div>
         <ul className="nav navbar-nav">
           <li className="active"><a href="/">Home</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/profile">Profile</a></li>
           <li><a href="#">Crypto News</a></li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
     </nav>

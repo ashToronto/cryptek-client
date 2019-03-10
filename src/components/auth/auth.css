@@ -9,7 +9,7 @@ align-content: center;
 min-height: 90vh;
 margin-top: auto;
 margin-bottom: auto;
-width: 55vh;
+width: 67vh;
 background-color: rgba(0,0,0,0.5) !important;
 padding: 2vh;
 }
@@ -17,6 +17,7 @@ padding: 2vh;
 .form-control {
   background-color: #151617;
   border-radius: 1vh;
+  color: white
 }
 
 .social_icon span{
