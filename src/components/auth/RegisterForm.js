@@ -7,11 +7,12 @@ class RegisterForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
+      user: {
+        name: '',
+        username: '',
+        email: '',
+        password: '',
+      }
     }
   }
 
@@ -22,8 +23,17 @@ class RegisterForm extends Component {
       const email = e.target.email.value
       const password = e.target.password.value
       const confirmPassword = e.target.confirmPassword.value
+      Validate.blankFields(name, username, email, password)
       Validate.passwrodMatch(password, confirmPassword)
       Validate.emailCheck(email)
+      this.setState({
+        user: {
+          name: name,
+          username: username,
+          email: email,
+          password: password,
+        }
+      })
   }
 
 render(){
