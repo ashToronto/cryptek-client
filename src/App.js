@@ -6,15 +6,15 @@ import './App.css';
 import Navigation from './components/Navigation'
 import Login from './components/auth/LoginForm'
 import Register from './components/auth/RegisterForm'
-import Auth from './modules/Auth'
+// import Auth from './modules/Auth'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      auth: Auth.isUserAuthenticated()
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     auth: Auth.isUserAuthenticated()
+  //   }
+  // }
 
   render() {
     return (

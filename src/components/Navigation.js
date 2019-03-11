@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
 import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap';
 import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom'
-import Auth from '../modules/Auth'
 import Portfolio from './Portfolio'
 import Login from './auth/LoginForm'
 import Register from './auth/RegisterForm'
 
 
 class Navigation extends Component {
-  constructor() {
-    super();
-    this.state = {
-      auth: Auth.isUserAuthenticated(),
-    }
-  }
 
   render() {
     return(

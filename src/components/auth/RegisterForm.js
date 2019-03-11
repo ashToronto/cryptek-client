@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap';
+import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap'
 import './auth.css'
 import Validate from './validation_helpers'
+import Auth from '../modules/Auth'
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class RegisterForm extends Component {
         username: '',
         email: '',
         password: '',
-      }
+      },
+      auth: Auth.isUserAuthenticated()
     }
   }
 
@@ -33,6 +35,18 @@ class RegisterForm extends Component {
           email: email,
           password: password,
         }
+      })
+      return fetch('/users', {
+        method: 'POST',
+        body: JSON.stringify({
+          user: this.state.user
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }).then(res => res.json())
+        .then(res => {
+        console.log(res)
       })
   }
 
