@@ -36,10 +36,17 @@ class RegisterForm extends Component {
           password: password,
         }
       })
+      console.log(this.state.user)
+      console.log(name, email, password, username)
       return fetch('/users', {
         method: 'POST',
         body: JSON.stringify({
-          user: this.state.user
+        user: {
+            name: name,
+            username: username,
+            email: email,
+            password: password,
+          }
         }),
         headers: {
           'Content-Type': 'application/json',
