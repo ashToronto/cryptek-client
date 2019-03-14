@@ -5,13 +5,15 @@ import Portfolio from './Portfolio'
 import Login from './auth/LoginForm'
 import Register from './auth/RegisterForm'
 
-
 class Navigation extends Component {
+
+
 
   render() {
     return(
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
+
         <div className="navbar-header">
           <a className="navbar-brand" href="#">Cryptex</a>
         </div>
@@ -23,6 +25,11 @@ class Navigation extends Component {
         <ul className="nav navbar-nav navbar-right">
           <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+            <li className='btn btn-default navbar-btn'>
+              <button className='fas fa-bars'></button>
+            </li>
+
         </ul>
       </div>
     </nav>

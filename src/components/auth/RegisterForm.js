@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap'
 import './auth.css'
+import {Redirect} from 'react-router-dom'
 import Validate from './validation_helpers'
 import Auth from '../modules/Auth'
 
@@ -36,8 +37,6 @@ class RegisterForm extends Component {
           password: password,
         }
       })
-      console.log(this.state.user)
-      console.log(name, email, password, username)
       return fetch('/users', {
         method: 'POST',
         body: JSON.stringify({

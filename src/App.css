@@ -2,7 +2,7 @@
   background-color: #282c34;
   text-align: center;
   display: flex;
-  width:100%;
+  min-width: 100%;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -60,4 +60,20 @@
 
 .last24h_value {
   display: inline-block;
+}
+
+/* MEDIA QUERIES FOR SCREEN SIZE VARIATION */
+
+@media screen and (min-width: 1600px) {
+  .wrapper {
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+    grid-gap: 50px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 10px;
+  }
 }
