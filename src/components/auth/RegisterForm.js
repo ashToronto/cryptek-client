@@ -14,8 +14,7 @@ class RegisterForm extends Component {
         username: '',
         email: '',
         password: '',
-      },
-      auth: Auth.isUserAuthenticated()
+      }
     }
   }
 
@@ -56,7 +55,7 @@ class RegisterForm extends Component {
           Auth.authenticateToken(res.token)
         console.log(res)
         this.setState({
-          auth: Auth.isUserAuthenticated(),
+          auth: this.props.auth
         })
       }).catch(err => console.log(err));
   }

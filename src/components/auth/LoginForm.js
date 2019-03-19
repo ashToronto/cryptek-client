@@ -10,7 +10,6 @@ class LoginForm extends Component {
     this.state = {
         username: '',
         password: '',
-      auth: Auth.isUserAuthenticated()
     }
   }
 
@@ -19,7 +18,7 @@ class LoginForm extends Component {
     e.preventDefault()
     const username_login = e.target.username.value
     const password_login = e.target.password.value
-    console.log(username_login + " " + password_login)
+    console.log(username_login + " " + password_login + " " + this.state.auth)
     this.setState({
         username: username_login,
         password: password_login,
@@ -35,7 +34,11 @@ class LoginForm extends Component {
       }
     }).then(res => res.json())
       .then(res => {
+        Auth.authenticateToken(res.token)
       console.log(res)
+      this.setState({
+        auth: this.props.auth
+      })
     }).catch(err => console.log(err));
   }
 

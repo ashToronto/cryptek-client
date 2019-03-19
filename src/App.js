@@ -6,9 +6,16 @@ import './App.css';
 import Navigation from './components/Navigation'
 import Login from './components/auth/LoginForm'
 import Register from './components/auth/RegisterForm'
+import Auth from './components/modules/Auth'
+
 
 class App extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      auth: Auth.isUserAuthenticated()
+    }
+  }
 
   render() {
     return (
@@ -18,10 +25,19 @@ class App extends Component {
         </div>
         <Router>
           <Switch>
-          <Route exact path='/' component={Cryptocurrency} />
-          <Route path='/portfolio/' component={Portfolio} />
-          <Route path='/register/' component={Register} />
-          <Route path='/login/' component={Login} />
+            <Route path='/register/' component={Register} />
+            <Route path='/login/' component={Login} />
+
+          <Route
+            exact path='/' render = {() => (this.state.auth) ? <Redirect to="/" />
+          : <Redirect to="/login" />}
+          />
+
+        <Route
+          path='/profile/' render = {() => (this.state.auth) ? <Redirect to="/profile" />
+        : <Redirect to="/login" />}
+           />
+
         </Switch>
         </Router>
       </div>
