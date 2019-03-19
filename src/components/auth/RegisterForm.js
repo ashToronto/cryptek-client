@@ -19,6 +19,7 @@ class RegisterForm extends Component {
     }
   }
 
+  // Registration - will be refactored for react architecture in future
   handleSubmit = (e) => {
     e.preventDefault();
       const name = e.target.name.value
@@ -52,8 +53,12 @@ class RegisterForm extends Component {
         }
       }).then(res => res.json())
         .then(res => {
+          Auth.authenticateToken(res.token)
         console.log(res)
-      })
+        this.setState({
+          auth: Auth.isUserAuthenticated(),
+        })
+      }).catch(err => console.log(err));
   }
 
 render(){

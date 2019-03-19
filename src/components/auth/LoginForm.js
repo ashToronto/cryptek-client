@@ -1,9 +1,44 @@
 import React, { Component } from 'react'
 import { Button,Navbar,Nav,NavItem,NavDropdown,MenuItem,form,input } from 'react-bootstrap';
 import './auth.css'
+import Auth from '../modules/Auth'
 
 
 class LoginForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        username: '',
+        password: '',
+      auth: Auth.isUserAuthenticated()
+    }
+  }
+
+  // Login - will be refactored for react architecture in future
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const username_login = e.target.username.value
+    const password_login = e.target.password.value
+    console.log(username_login + " " + password_login)
+    this.setState({
+        username: username_login,
+        password: password_login,
+    })
+    return fetch('/login', {
+      method: 'POST',
+      body: JSON.stringify({
+          username: username_login,
+          password: password_login,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => res.json())
+      .then(res => {
+      console.log(res)
+    }).catch(err => console.log(err));
+  }
+
 render(){
     return(
     <div className="Layout">
@@ -17,19 +52,22 @@ render(){
           </div>
         </div>
         <div className="card-body">
-          <form>
+          <form onSubmit={this.handleSubmit}>
+
             <div className="padded-wrapper-login">
               <div className="input-group-prepend">
                 <span className="input-group-text"><i className="fas fa-user"></i></span>
               </div>
-              <input type="text" className="form-control" placeholder="username" />
+              <input type="text" name="username" className="form-control" placeholder="username" />
             </div>
+
             <div className="padded-wrapper-login">
               <div className="input-group-prepend">
                 <span className="input-group-text"><i className="fas fa-key"></i></span>
               </div>
-              <input type="password" className="form-control" placeholder="password" />
+              <input type="password" name="password" className="form-control" placeholder="password" />
             </div>
+
             <div className="row align-items-center remember">
               <input type="checkbox" />Remember Me
             </div>
@@ -37,6 +75,7 @@ render(){
               <input type="submit" value="Login" className="btn float-right login_btn" />
             </div>
           </form>
+
         </div>
         <div className="card-footer">
           <div className="d-flex justify-content-center links">
